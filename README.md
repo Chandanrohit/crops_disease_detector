@@ -17,21 +17,21 @@
 
 ---
 
-## 🚨 Problem Statement
+##  Problem Statement
 
 India loses **₹50,000+ crore** annually to crop diseases. Over **86% of Indian farmers are small or marginal** — they lack access to agronomists, can't afford lab testing, and often rely on guesswork until it's too late.
 
 **The core failure:** Disease identification requires expert knowledge that most farmers simply don't have. By the time symptoms are visible and an expert is consulted, 30–70% of yield is already lost.
 
 ### Pain Points
-- 🌍 Rural areas have **no internet connectivity** for cloud-based diagnosis tools
-- 🗣️ Existing tools output in **English only** — inaccessible to most farmers
-- 💸 Expert consultation costs ₹500–2000+ per visit — unaffordable at scale
-- ⏳ Lab results take **3–7 days** — crops don't wait
+-  Rural areas have **no internet connectivity** for cloud-based diagnosis tools
+-  Existing tools output in **English only** — inaccessible to most farmers
+-  Expert consultation costs ₹500–2000+ per visit — unaffordable at scale
+-  Lab results take **3–7 days** — crops don't wait
 
 ---
 
-## ✅ Our Solution — FasalAI
+##  Our Solution — FasalAI
 
 FasalAI is an **offline-first, Hindi-language crop disease detector** that runs entirely on a smartphone with no internet connection.
 
@@ -50,11 +50,11 @@ A farmer takes a photo of a diseased leaf → FasalAI identifies the disease →
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        FasalAI Model                           │
+│                        FasalAI Model                            │
 │                                                                 │
 │  Input Image (224×224)                                          │
 │        ↓                                                        │
@@ -68,11 +68,11 @@ A farmer takes a photo of a diseased leaf → FasalAI identifies the disease →
 │  └──────────────────────┘                                       │
 │        ↓           ↓                                            │
 │  Avg Pool      Env Branch (Temperature + Humidity)              │
-│  (1280-dim)    → Linear(2→32) → ReLU → Dropout                 │
+│  (1280-dim)    → Linear(2→32) → ReLU → Dropout                  │
 │        ↓           ↓                                            │
 │  Concat: [1280 + 32] = 1312-dim                                 │
 │        ↓                                                        │
-│  Classifier: Dropout(0.4) → FC(1312→512) → ReLU →              │
+│  Classifier: Dropout(0.4) → FC(1312→512) → ReLU →               │
 │              Dropout(0.3) → FC(512→38)                          │
 │        ↓                                                        │
 │  Softmax → Top-1 Class + Confidence                             │
@@ -98,7 +98,7 @@ Since real IoT sensors aren't always available:
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
 **PlantVillage Dataset** — the gold standard for plant disease classification
 
@@ -112,12 +112,12 @@ Since real IoT sensors aren't always available:
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/fasalai.git
+git clone https://github.com/Chandanrohit/crops_disease_detector.git
 cd fasalai
 pip install -r requirements.txt
 ```
@@ -162,11 +162,11 @@ python inference.py --image leaf.jpg --temperature 22 --humidity 78
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 fasalai/
-├── 📓 notebooks/
+├──  notebooks/
 │   └── FasalAI_Colab.ipynb        ← Full Colab training notebook
-├── 📦 checkpoints/
+├──  checkpoints/
 │   ├── crop_disease_model.onnx     ← FP32 inference model
