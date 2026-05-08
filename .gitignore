@@ -1,0 +1,56 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+*.so
+.env
+.venv/
+venv/
+env/
+
+# ── Dataset (never commit raw data — too large) ────────────────────────────────
+data/
+datasets/
+
+# ── Large model weights (use Drive or HuggingFace Hub) ────────────────────────
+checkpoints/efficientnet_crop.pt
+checkpoints/efficientnet_crop_last.pt
+checkpoints/efficientnet_crop_best.pt
+
+# Keep these — small and needed for inference
+!checkpoints/crop_disease_model.onnx
+!checkpoints/crop_disease_model_int8.onnx
+!checkpoints/class_labels.json
+
+# ── Colab / Jupyter ────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+# Keep notebooks — they are documentation
+!notebooks/*.ipynb
+
+# ── Logs (keep PNGs for README, ignore raw logs) ──────────────────────────────
+logs/*.txt
+logs/*.log
+
+# Keep visual assets for README
+!assets/*.png
+!assets/*.jpg
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE ────────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+
+# ── ngrok / secrets ───────────────────────────────────────────────────────────
+.ngrok*
+*.pem
+*.key
+kaggle.json
+secrets.json
